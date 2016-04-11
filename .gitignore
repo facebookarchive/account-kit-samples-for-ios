@@ -1,0 +1,12 @@
+src/build/
+build/
+lib/
+project.xcworkspace
+xcuserdata
+.arcbuildbootstrap
+.DS_Store
+*.xcscmblueprint
+AccountKit
+
+# vim temp files
+*.swp

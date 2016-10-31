@@ -22,7 +22,17 @@
 
 @interface AdvancedUIManager : NSObject <AKFAdvancedUIManager>
 
-@property (nonatomic, assign) AKFButtonType confirmButtonType;
-@property (nonatomic, assign) AKFButtonType entryButtonType;
+- (instancetype)initWithConfirmButtonType:(AKFButtonType)confirmButtonType
+                          entryButtonType:(AKFButtonType)entryButtonType
+                                loginType:(AKFLoginType)loginType
+                             textPosition:(AKFTextPosition)textPosition
+NS_DESIGNATED_INITIALIZER;
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+
+@property (nonatomic, assign, readonly) AKFButtonType confirmButtonType;
+@property (nonatomic, assign, readonly) AKFButtonType entryButtonType;
+@property (nonatomic, assign, readonly) AKFLoginType loginType;
+@property (nonatomic, assign, readonly) AKFTextPosition textPosition;
 
 @end

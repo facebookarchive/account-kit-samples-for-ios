@@ -29,6 +29,7 @@ typedef NS_ENUM(NSUInteger, ConfigOptionType)
   ConfigOptionTypeNone,
   ConfigOptionTypeConfirmButtonType,
   ConfigOptionTypeEntryButtonType,
+  ConfigOptionTypeTextPosition,
   ConfigOptionTypeTheme,
 };
 

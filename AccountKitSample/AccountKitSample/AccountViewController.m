@@ -47,13 +47,19 @@
   if (!_accountKit) {
     _accountKit = [[AKFAccountKit alloc] initWithResponseType:AKFResponseTypeAccessToken];
     [_accountKit requestAccount:^(id<AKFAccount> account, NSError *error) {
-      self.accountIDLabel.text = account.accountID;
-      if ([account.emailAddress length]) {
-        self.titleLabel.text = @"Email Address";
-        self.valueLabel.text = account.emailAddress;
-      } else if ([account phoneNumber]) {
-        self.titleLabel.text = @"Phone Number";
-        self.valueLabel.text = [[account phoneNumber] stringRepresentation];
+      if (error != nil) {
+        self.accountIDLabel.text = @"N/A";
+        self.titleLabel.text = @"Error";
+        self.valueLabel.text = [error description];
+      } else {
+        self.accountIDLabel.text = account.accountID;
+        if ([account.emailAddress length] > 0) {
+          self.titleLabel.text = @"Email Address";
+          self.valueLabel.text = account.emailAddress;
+        } else if ([account phoneNumber] != nil) {
+          self.titleLabel.text = @"Phone Number";
+          self.valueLabel.text = [account.phoneNumber stringRepresentation];
+        }
       }
     }];
   }

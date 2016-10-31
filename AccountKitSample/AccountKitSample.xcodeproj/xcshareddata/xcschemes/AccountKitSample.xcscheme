@@ -14,20 +14,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "89B219901BE3EF5F000CD02C"
-               BuildableName = "AccountKit-Universal"
-               BlueprintName = "AccountKit-Universal"
-               ReferencedContainer = "container:../../AccountKit/AccountKit.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "89B2199F1BE3FA83000CD02C"
                BuildableName = "AccountKitSample.app"
                BlueprintName = "AccountKitSample"

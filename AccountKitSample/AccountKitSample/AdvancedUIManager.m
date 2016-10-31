@@ -26,6 +26,22 @@
   NSError *_error;
 }
 
+#pragma mark - Object Lifecycle
+
+- (instancetype)initWithConfirmButtonType:(AKFButtonType)confirmButtonType
+                          entryButtonType:(AKFButtonType)entryButtonType
+                                loginType:(AKFLoginType)loginType
+                             textPosition:(AKFTextPosition)textPosition
+{
+  if ((self = [super init])) {
+    _confirmButtonType = confirmButtonType;
+    _entryButtonType = entryButtonType;
+    _textPosition = textPosition;
+    _loginType = loginType;
+  }
+  return self;
+}
+
 #pragma mark - AKFAdvancedUIManager
 
 - (UIView *)actionBarViewForState:(AKFLoginFlowState)state
@@ -47,10 +63,16 @@
     case AKFLoginFlowStateCodeInput:
       return self.confirmButtonType;
     case AKFLoginFlowStateEmailInput:
-      return self.entryButtonType;
     case AKFLoginFlowStatePhoneNumberInput:
       return self.entryButtonType;
-    default:
+    case AKFLoginFlowStateNone:
+    case AKFLoginFlowStateError:
+    case AKFLoginFlowStateSentCode:
+    case AKFLoginFlowStateVerified:
+    case AKFLoginFlowStateEmailVerify:
+    case AKFLoginFlowStateSendingCode:
+    case AKFLoginFlowStateVerifyingCode:
+    case AKFLoginFlowStateResendCode:
       return AKFButtonTypeDefault;
   }
 }
@@ -79,6 +101,11 @@
   _error = [error copy];
 }
 
+- (AKFTextPosition)textPositionForState:(AKFLoginFlowState)state
+{
+  return _textPosition;
+}
+
 #pragma mark - Helper Methods
 
 - (void)_back:(id)sender
@@ -86,7 +113,9 @@
   [_actionController back];
 }
 
-- (PlaceholderView *)_viewForState:(AKFLoginFlowState)state suffix:(NSString *)suffix intrinsicHeight:(CGFloat)intrinsicHeight
+- (PlaceholderView *)_viewForState:(AKFLoginFlowState)state
+                            suffix:(NSString *)suffix
+                   intrinsicHeight:(CGFloat)intrinsicHeight
 {
   NSString *prefix;
   switch (state) {
@@ -100,10 +129,24 @@
       prefix = @"Custom Email Verify";
       break;
     case AKFLoginFlowStateSendingCode:
-      prefix = @"Custom Sending Code";
+      switch (_loginType) {
+        case AKFLoginTypeEmail:
+          prefix = @"Custom Sending Email";
+          break;
+        case AKFLoginTypePhone:
+          prefix = @"Custom Sending Code";
+          break;
+      }
       break;
     case AKFLoginFlowStateSentCode:
-      prefix = @"Custom Sent Code";
+      switch (_loginType) {
+        case AKFLoginTypeEmail:
+          prefix = @"Custom Sent Email";
+          break;
+        case AKFLoginTypePhone:
+          prefix = @"Custom Sent Code";
+          break;
+      }
       break;
     case AKFLoginFlowStateCodeInput:
       prefix = @"Custom Code Input";
@@ -116,6 +159,9 @@
       break;
     case AKFLoginFlowStateError:
       prefix = @"Custom Error";
+      break;
+    case AKFLoginFlowStateResendCode:
+      prefix = @"Custom Resend Code";
       break;
     case AKFLoginFlowStateNone:
       return nil;

@@ -25,22 +25,26 @@
 #import "AuthorizationCodeViewController.h"
 #import "ConfigOption.h"
 #import "ConfigOptionListViewController.h"
-#import "Themes.h"
+#import "ReverbTheme.h"
+#import "ReverbUIManager.h"
+#import "Theme.h"
 
-@interface LoginViewController () <AKFViewControllerDelegate, ConfigOptionListViewControllerDelegate>
+@interface LoginViewController () <AKFViewControllerDelegate, ConfigOptionListViewControllerDelegate, ReverbUIManagerDelegate>
 @end
 
 @implementation LoginViewController
 {
   AKFAccountKit *_accountKit;
-  AdvancedUIManager *_advancedUIManager;
   NSString *_authorizationCode;
+  AKFButtonType _confirmButtonType;
   BOOL _enableSendToFacebook;
+  AKFButtonType _entryButtonType;
+  AKFHeaderTextType _headerTextType;
   NSString *_inputState;
   NSString *_outputState;
   UIViewController<AKFViewController> *_pendingLoginViewController;
   BOOL _showAccountOnAppear;
-  AKFTheme *_theme;
+  AKFTextPosition _textPosition;
   ThemeType _themeType;
   BOOL _useAdvancedUIManager;
 }
@@ -60,8 +64,9 @@
   _enableSendToFacebook = YES;
 
   [self _updateThemeType:_themeType];
-  [self _updateEntryButtonType:_advancedUIManager.entryButtonType];
-  [self _updateConfirmButtonType:_advancedUIManager.confirmButtonType];
+  [self _updateEntryButtonType:_entryButtonType];
+  [self _updateConfirmButtonType:_confirmButtonType];
+  [self _updateTextPosition:_textPosition];
   [self _updateCells];
 }
 
@@ -91,7 +96,7 @@
   } else if ([identifier isEqualToString:@"showThemeList"]) {
     NSMutableArray<ConfigOption *> *options = [[NSMutableArray alloc] init];
     for (NSUInteger i = 0; i < ThemeTypeCount; ++i) {
-      [options addObject:[[ConfigOption alloc] initWithValue:i label:[Themes labelForThemeType:i]]];
+      [options addObject:[[ConfigOption alloc] initWithValue:i label:[Theme labelForThemeType:i]]];
     }
     [self _prepareConfigOptionListViewController:(ConfigOptionListViewController *)destinationViewController
                                         withType:ConfigOptionTypeTheme
@@ -101,19 +106,25 @@
     [self _prepareConfigOptionListViewController:(ConfigOptionListViewController *)destinationViewController
                                         withType:ConfigOptionTypeEntryButtonType
                                          options:[self _buttonTypeOptions]
-                                   selectedValue:_advancedUIManager.entryButtonType];
+                                   selectedValue:_entryButtonType];
   } else if ([identifier isEqualToString:@"showConfirmButtonTypeList"]) {
     [self _prepareConfigOptionListViewController:(ConfigOptionListViewController *)destinationViewController
                                         withType:ConfigOptionTypeConfirmButtonType
                                          options:[self _buttonTypeOptions]
-                                   selectedValue:_advancedUIManager.confirmButtonType];
+                                   selectedValue:_confirmButtonType];
+  } else if ([identifier isEqualToString:@"showTextPositionList"]) {
+    [self _prepareConfigOptionListViewController:(ConfigOptionListViewController *)destinationViewController
+                                        withType:ConfigOptionTypeTextPosition
+                                         options:[self _textPositionOptions]
+                                   selectedValue:_textPosition];
   }
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
   if (![identifier isEqualToString:@"showEntryButtonTypeList"] &&
-      ![identifier isEqualToString:@"showConfirmButtonTypeList"]) {
+      ![identifier isEqualToString:@"showConfirmButtonTypeList"] &&
+      ![identifier isEqualToString:@"showTextPositionList"]) {
     return YES;
   }
 
@@ -146,10 +157,16 @@
   }
   UISwitch *switchControl = (UISwitch *)sender;
   _useAdvancedUIManager = switchControl.on;
-  if (_useAdvancedUIManager) {
-    [self _ensureAdvancedUIManager];
-  }
   [self _updateCells];
+}
+
+- (void)toggleEnableSendToFacebook:(id)sender
+{
+  if (![sender isKindOfClass:[UISwitch class]]) {
+    return;
+  }
+  UISwitch *switchControl = (UISwitch *)sender;
+  _enableSendToFacebook = switchControl.on;
 }
 
 - (void)toggleResponseType:(id)sender
@@ -172,15 +189,6 @@
   _inputState = switchControl.on ? [self _generateState] : nil;
 }
 
-- (IBAction)toggleEnableSendToFacebook:(id)sender
-{
-  if (![sender isKindOfClass:[UISwitch class]]) {
-    return;
-  }
-  UISwitch *switchControl = (UISwitch *)sender;
-  _enableSendToFacebook = switchControl.on;
-}
-
 - (NSString *)_generateState
 {
   NSString *UUIDString = [[NSUUID UUID] UUIDString];
@@ -193,7 +201,7 @@
     return;
   }
   UISwitch *switchControl = (UISwitch *)sender;
-  _theme.headerTextType = switchControl.on ? AKFHeaderTextTypeAppName : AKFHeaderTextTypeLogin;
+  _headerTextType = switchControl.on ? AKFHeaderTextTypeAppName : AKFHeaderTextTypeLogin;
 }
 
 #pragma mark - AKFViewControllerDelegate;
@@ -216,6 +224,11 @@
   NSLog(@"%@ did fail with error: %@", viewController, error);
 }
 
+- (void)viewControllerDidCancel:(UIViewController<AKFViewController> *)viewController
+{
+  NSLog(@"%@ did cancel", viewController);
+}
+
 #pragma mark - ConfigOptionListViewControllerDelegate
 
 - (void)configOptionListViewController:(ConfigOptionListViewController *)configOptionListViewController
@@ -228,6 +241,9 @@
     case ConfigOptionTypeEntryButtonType:
       [self _updateEntryButtonType:(AKFButtonType)configOption.value];
       break;
+    case ConfigOptionTypeTextPosition:
+      [self _updateTextPosition:(AKFTextPosition)configOption.value];
+      break;
     case ConfigOptionTypeTheme:
       [self _updateThemeType:(ThemeType)configOption.value];
       break;
@@ -235,6 +251,24 @@
       break;
   }
   [configOptionListViewController.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - ReverbUIManagerDelegate
+
+- (void)reverbUIManager:(ReverbUIManager *)reverbUIManager didSwitchLoginType:(AKFLoginType)loginType
+{
+  UIViewController<AKFViewController> *viewController;
+  switch (loginType) {
+    case AKFLoginTypeEmail:
+      viewController = [_accountKit viewControllerForEmailLoginWithEmail:nil state:_inputState];
+      break;
+    case AKFLoginTypePhone:
+      viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil state:_inputState];
+      viewController.enableSendToFacebook = _enableSendToFacebook;
+      break;
+  }
+  [self _prepareLoginViewController:viewController];
+  _pendingLoginViewController = viewController;
 }
 
 #pragma mark - Helper Methods
@@ -246,13 +280,6 @@
     [options addObject:[[ConfigOption alloc] initWithValue:i label:[self _labelForButtonType:i]]];
   }
   return [options copy];
-}
-
-- (void)_ensureAdvancedUIManager
-{
-  if (_advancedUIManager == nil) {
-    _advancedUIManager = [[AdvancedUIManager alloc] init];
-  }
 }
 
 - (NSString *)_labelForButtonType:(AKFButtonType)buttonType
@@ -281,11 +308,47 @@
   }
 }
 
+- (NSString *)_labelForTextPosition:(AKFTextPosition)textPosition
+{
+  switch (textPosition) {
+    case AKFTextPositionDefault:
+      return @"Default";
+    case AKFTextPositionAboveBody:
+      return @"Above Body";
+    case AKFTextPositionBelowBody:
+      return @"Below Body";
+  }
+}
+
 - (void)_prepareLoginViewController:(UIViewController<AKFViewController> *)loginViewController
 {
-  loginViewController.advancedUIManager = _useAdvancedUIManager ? _advancedUIManager : nil;
+  Theme *theme;
+  ReverbTheme *reverbTheme = nil;
+  if ([Theme isReverbTheme:_themeType]) {
+    reverbTheme = [ReverbTheme themeWithType:_themeType];
+    theme = reverbTheme;
+  } else {
+    theme = [Theme themeWithType:_themeType];
+  }
+  theme.headerTextType = _headerTextType;
+  if (_useAdvancedUIManager) {
+    if ([Theme isReverbTheme:_themeType]) {
+      loginViewController.advancedUIManager = [[ReverbUIManager alloc] initWithConfirmButtonType:_confirmButtonType
+                                                                                 entryButtonType:_entryButtonType
+                                                                                       loginType:loginViewController.loginType
+                                                                                    textPosition:_textPosition
+                                                                                           theme:reverbTheme
+                                                                                        delegate:self];
+    } else {
+      loginViewController.advancedUIManager = [[AdvancedUIManager alloc] initWithConfirmButtonType:_confirmButtonType
+                                                                                   entryButtonType:_entryButtonType
+                                                                                         loginType:loginViewController.loginType
+                                                                                      textPosition:_textPosition];
+    }
+  }
+
   loginViewController.delegate = self;
-  loginViewController.theme = _theme;
+  loginViewController.theme = theme;
 }
 
 - (void)_prepareConfigOptionListViewController:(ConfigOptionListViewController *)viewController
@@ -313,9 +376,8 @@
   }
 }
 
-- (void)_setCell:(UITableViewCell *)cell enabled:(BOOL)enabled selectable:(BOOL)selectable
+- (void)_setCell:(UITableViewCell *)cell enabled:(BOOL)enabled
 {
-  cell.selectionStyle = selectable ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone;
   for (UIView *view in cell.contentView.subviews) {
     if ([view isKindOfClass:[UILabel class]]) {
       ((UILabel *)view).enabled = enabled;
@@ -325,46 +387,65 @@
   }
 }
 
+- (void)_setCell:(UITableViewCell *)cell selectable:(BOOL)selectable
+{
+  cell.selectionStyle = selectable ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone;
+}
+
+- (NSArray<ConfigOption *> *)_textPositionOptions
+{
+  NSMutableArray<ConfigOption *> *options = [[NSMutableArray alloc] init];
+  for (NSUInteger i = 0; i < AKFTextPositionCount; ++i) {
+    [options addObject:[[ConfigOption alloc] initWithValue:i label:[self _labelForTextPosition:i]]];
+  }
+  return [options copy];
+}
+
 - (void)_updateCells
 {
   NSArray<UITableViewCell *> *unselectableCells = self.unselectableCells;
   for (UITableViewCell *cell in unselectableCells) {
-    [self _setCell:cell enabled:YES selectable:NO];
+    [self _setCell:cell selectable:NO];
   }
   for (UITableViewCell *cell in self.advancedUICells) {
-    [self _setCell:cell
-           enabled:_useAdvancedUIManager
-        selectable:(_useAdvancedUIManager && ![unselectableCells containsObject:cell])];
+    [self _setCell:cell enabled:_useAdvancedUIManager];
+    [self _setCell:cell selectable:(_useAdvancedUIManager && ![unselectableCells containsObject:cell])];
   }
 }
 
 - (void)_updateConfirmButtonType:(AKFButtonType)buttonType
 {
   self.currentConfirmButtonTypeLabel.text = [self _labelForButtonType:buttonType];
-  if (buttonType != AKFButtonTypeDefault) {
-    [self _ensureAdvancedUIManager];
-  }
-  _advancedUIManager.confirmButtonType = buttonType;
+  _confirmButtonType = buttonType;
 }
 
 - (void)_updateEntryButtonType:(AKFButtonType)buttonType
 {
   self.currentEntryButtonTypeLabel.text = [self _labelForButtonType:buttonType];
-  if (buttonType != AKFButtonTypeDefault) {
-    [self _ensureAdvancedUIManager];
-  }
-  _advancedUIManager.entryButtonType = buttonType;
+  _entryButtonType = buttonType;
+}
+
+- (void)_updateTextPosition:(AKFTextPosition)textPosition
+{
+  self.currentTextPositionLabel.text = [self _labelForTextPosition:textPosition];
+  _textPosition = textPosition;
 }
 
 - (void)_updateThemeType:(ThemeType)themeType
 {
   _themeType = themeType;
-  AKFTheme *theme = [Themes themeWithType:themeType];
-  if (_theme != nil){
-    theme.headerTextType = _theme.headerTextType;
+  self.currentThemeLabel.text = [Theme labelForThemeType:_themeType];
+
+  if ([Theme isReverbTheme:_themeType]) {
+    [self _setCell:self.advancedUISwitchCell enabled:NO];
+    UISwitch *advancedUISwitch = self.advancedUISwitch;
+    if (!advancedUISwitch.on) {
+      advancedUISwitch.on = YES;
+      [self toggleAdvancedUI:advancedUISwitch];
+    }
+  } else {
+    [self _setCell:self.advancedUISwitchCell enabled:YES];
   }
-  _theme = theme;
-  self.currentThemeLabel.text = [Themes labelForThemeType:themeType];
 }
 
 @end

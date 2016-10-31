@@ -16,7 +16,31 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#ifndef AccountKitSample_AccountKitSample_Prefix_pch
-#define AccountKitSample_AccountKitSample_Prefix_pch
+#import <UIKit/UIKit.h>
 
-#endif
+#import <AccountKit/AccountKit.h>
+
+@class ReverbTheme;
+
+@protocol ReverbActionBarViewDelegate;
+
+@interface ReverbActionBarView : UIView
+
+- (instancetype)initWithState:(AKFLoginFlowState)state
+                        theme:(ReverbTheme *)theme
+                     delegate:(id<ReverbActionBarViewDelegate>)delegate
+NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
+- (instancetype)initWithCoder:(NSCoder *)decoder NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+
+@property (nonatomic, weak) id<ReverbActionBarViewDelegate> delegate;
+
+@end
+
+@protocol ReverbActionBarViewDelegate <NSObject>
+
+- (void)reverbActionBarViewDidTapBack:(ReverbActionBarView *)reverbActionBarView;
+
+@end

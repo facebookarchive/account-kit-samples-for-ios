@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="GjR-M7-JNo">
-                            <rect key="frame" x="0.0" y="504" width="600" height="0.0"/>
+                            <rect key="frame" x="0.0" y="548" width="600" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -289,8 +289,35 @@
                                             <segue destination="Pka-Eb-nzA" kind="show" identifier="showConfirmButtonTypeList" id="dp4-Md-def"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Tmo-UU-ArV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="eLn-UG-yTI" detailTextLabel="S7n-9P-ejU" style="IBUITableViewCellStyleValue1" id="OMX-wg-qpW">
                                         <rect key="frame" x="0.0" y="416" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OMX-wg-qpW" id="It4-kY-JaZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Text Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eLn-UG-yTI">
+                                                    <rect key="frame" x="15" y="12" width="93" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S7n-9P-ejU">
+                                                    <rect key="frame" x="523" y="12" width="42" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Pka-Eb-nzA" kind="show" identifier="showTextPositionList" id="Tjn-Vk-I2p"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Tmo-UU-ArV">
+                                        <rect key="frame" x="0.0" y="460" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tmo-UU-ArV" id="2o0-9J-qc2">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -314,7 +341,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cVL-6O-oEw">
-                                        <rect key="frame" x="0.0" y="460" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="504" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cVL-6O-oEw" id="9dg-Wg-XhC">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -347,8 +374,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Account Kit Sample" id="Rtn-L5-E15"/>
                     <connections>
+                        <outlet property="advancedUISwitch" destination="dXp-ro-pxv" id="rt2-aL-Slo"/>
+                        <outlet property="advancedUISwitchCell" destination="xLc-LJ-2a0" id="v7i-BJ-hVy"/>
                         <outlet property="currentConfirmButtonTypeLabel" destination="2m2-Xv-eOz" id="fai-jz-QQj"/>
                         <outlet property="currentEntryButtonTypeLabel" destination="Sjv-ib-fgM" id="oL7-il-wGN"/>
+                        <outlet property="currentTextPositionLabel" destination="S7n-9P-ejU" id="AVi-8S-T30"/>
                         <outlet property="currentThemeLabel" destination="3cg-xV-zyg" id="5sJ-Sh-T4y"/>
                         <outletCollection property="advancedUICells" destination="m60-wL-6BW" id="FDd-W7-8fO"/>
                         <outletCollection property="advancedUICells" destination="NdJ-Z4-YQI" id="Wsb-Xh-uts"/>
@@ -357,6 +387,7 @@
                         <outletCollection property="unselectableCells" destination="Zby-td-Hjh" id="Dlf-cH-Q4m"/>
                         <outletCollection property="unselectableCells" destination="Tmo-UU-ArV" id="hlH-FP-7AK"/>
                         <outletCollection property="unselectableCells" destination="cVL-6O-oEw" id="yVb-Ds-hfX"/>
+                        <outletCollection property="advancedUICells" destination="OMX-wg-qpW" id="bTw-Xe-8Pb"/>
                         <segue destination="dU0-sI-Oki" kind="show" identifier="showAccount" id="ac3-kJ-HCm"/>
                         <segue destination="gLf-aD-0GX" kind="show" identifier="showAuthorizationCode" id="6Hd-Xh-lAG"/>
                     </connections>
@@ -593,6 +624,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dp4-Md-def"/>
+        <segue reference="Tjn-Vk-I2p"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,14 +21,18 @@
 @interface LoginViewController : UITableViewController
 
 @property (nonatomic, strong) IBOutletCollection(UITableViewCell) NSArray<UITableViewCell *> *advancedUICells;
+@property (nonatomic, strong) IBOutlet UISwitch *advancedUISwitch;
+@property (nonatomic, strong) IBOutlet UITableViewCell *advancedUISwitchCell;
 @property (nonatomic, strong) IBOutlet UILabel *currentConfirmButtonTypeLabel;
 @property (nonatomic, strong) IBOutlet UILabel *currentEntryButtonTypeLabel;
+@property (nonatomic, strong) IBOutlet UILabel *currentTextPositionLabel;
 @property (nonatomic, strong) IBOutlet UILabel *currentThemeLabel;
 @property (nonatomic, strong) IBOutletCollection(UITableViewCell) NSArray<UITableViewCell *> *unselectableCells;
 
 - (IBAction)loginWithEmail:(id)sender;
 - (IBAction)loginWithPhone:(id)sender;
 - (IBAction)toggleAdvancedUI:(id)sender;
+- (IBAction)toggleEnableSendToFacebook:(id)sender;
 - (IBAction)toggleResponseType:(id)sender;
 - (IBAction)toggleSendState:(id)sender;
 - (IBAction)toggleTitle:(id)sender;

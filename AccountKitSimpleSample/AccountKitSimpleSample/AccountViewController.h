@@ -16,25 +16,14 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-#import <AccountKit/AccountKit.h>
+@interface AccountViewController : UIViewController
 
-typedef NS_ENUM(NSUInteger, ThemeType)
-{
-  ThemeTypeDefault,
-  ThemeTypeSalmon,
-  ThemeTypeYellow,
-  ThemeTypeRed,
-  ThemeTypeDog,
-  ThemeTypeBicycle,
-};
+@property (nonatomic, strong) IBOutlet UILabel *accountIDLabel;
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *valueLabel;
 
-extern const NSUInteger ThemeTypeCount;
-
-@interface Themes : NSObject
-
-+ (NSString *)labelForThemeType:(ThemeType)themeType;
-+ (AKFTheme *)themeWithType:(ThemeType)themeType;
+- (IBAction)logout:(id)sender;
 
 @end

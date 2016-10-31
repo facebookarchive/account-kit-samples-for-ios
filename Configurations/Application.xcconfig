@@ -19,9 +19,6 @@
 // Code Signing
 CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Developer
 
-// Language
-GCC_PREFIX_HEADER = $(TARGET_NAME)/$(TARGET_NAME)-Prefix.pch
-
 // Packaging
 INFOPLIST_FILE = $(TARGET_NAME)/$(TARGET_NAME)-Info.plist
 WRAPPER_EXTENSION = app

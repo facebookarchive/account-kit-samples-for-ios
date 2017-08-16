@@ -74,6 +74,8 @@
     case AKFLoginFlowStateVerifyingCode:
     case AKFLoginFlowStateResendCode:
       return AKFButtonTypeDefault;
+    default:
+      return AKFButtonTypeDefault;
   }
 }
 

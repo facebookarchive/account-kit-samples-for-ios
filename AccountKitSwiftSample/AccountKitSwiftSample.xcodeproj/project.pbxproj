@@ -33,7 +33,7 @@
 		891731DB1BE402FF0003ED91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		891731DD1BE403080003ED91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895A5CA21BE7B95900EEE412 /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccountKit.framework; path = ../AccountKit/AccountKit.framework; sourceTree = "<group>"; };
-		89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AccountKitStrings.bundle; path = ../../AccountKit/AccountKitStrings.bundle; sourceTree = "<group>"; };
+		89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AccountKitStrings.bundle; path = ../../AccountKAccountKit/AccountKitStrings.bundle; sourceTree = "<group>"; };
 		89B219A01BE3FA83000CD02C /* AccountKitSwiftSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountKitSwiftSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B219AD1BE3FA83000CD02C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89B219AF1BE3FA83000CD02C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };

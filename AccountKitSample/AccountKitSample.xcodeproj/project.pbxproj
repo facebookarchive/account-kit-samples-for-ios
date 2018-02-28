@@ -76,7 +76,7 @@
 		89A9B0611C50355400DB91DD /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
 		89AB686D1C7FCFFF009F4D13 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		89AB686E1C7FD007009F4D13 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AccountKitStrings.bundle; path = ../../AccountKit/AccountKitStrings.bundle; sourceTree = "<group>"; };
+		89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AccountKitStrings.bundle; path = ../../AccountKAccountKit/AccountKitStrings.bundle; sourceTree = "<group>"; };
 		89B219A01BE3FA83000CD02C /* AccountKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B219A41BE3FA83000CD02C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		89B219A61BE3FA83000CD02C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };

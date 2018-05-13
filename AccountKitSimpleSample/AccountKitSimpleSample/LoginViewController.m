@@ -16,11 +16,10 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "LoginViewController.h"
-
 #import <AccountKit/AccountKit.h>
-
+#import "LoginViewController.h"
 #import "AccountViewController.h"
+#import "AdvancedUIManager.h"
 
 @interface LoginViewController () <AKFViewControllerDelegate>
 @end
@@ -95,6 +94,7 @@
 
 - (void)_prepareLoginViewController:(UIViewController<AKFViewController> *)loginViewController
 {
+  loginViewController.advancedUIManager = [[AdvancedUIManager alloc] init];
   loginViewController.delegate = self;
 }
 

@@ -29,7 +29,7 @@ final class AccountViewController: UIViewController {
 
   // MARK: - properties
   
-  fileprivate var accountKit = AKFAccountKit(responseType: .accessToken)
+  fileprivate var accountKit = AccountKit(responseType: .accessToken)
   
   // MARK: - view management
   
@@ -44,8 +44,7 @@ final class AccountViewController: UIViewController {
       } else {
         self?.accountIDLabel.text = account?.accountID
         
-        if let emailAddress = account?.emailAddress
-          , emailAddress.characters.count > 0 {
+        if let emailAddress = account?.emailAddress, emailAddress.count > 0 {
           self?.titleLabel.text = "Email Address"
           self?.valueLabel.text = emailAddress
         } else if let phoneNumber = account?.phoneNumber {

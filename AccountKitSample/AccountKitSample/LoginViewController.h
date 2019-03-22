@@ -28,13 +28,22 @@
 @property (nonatomic, strong) IBOutlet UILabel *currentTextPositionLabel;
 @property (nonatomic, strong) IBOutlet UILabel *currentThemeLabel;
 @property (nonatomic, strong) IBOutletCollection(UITableViewCell) NSArray<UITableViewCell *> *unselectableCells;
+@property (nonatomic, strong) IBOutlet UISwitch *backgroundImageSwitch;
+@property (nonatomic, strong) IBOutlet UITableViewCell *backgroundImageSwitchCell;
+@property (nonatomic, strong) IBOutlet UISwitch *backgroundTintSwitch;
+@property (nonatomic, strong) IBOutlet UITableViewCell *backgroundTintSwitchCell;
+@property (nonatomic, strong) IBOutlet UISlider *tintOpacitySlider;
+@property (nonatomic, strong) IBOutlet UITableViewCell *tintOpacitySliderCell;
 
 - (IBAction)loginWithEmail:(id)sender;
 - (IBAction)loginWithPhone:(id)sender;
 - (IBAction)toggleAdvancedUI:(id)sender;
 - (IBAction)toggleEnableSendToFacebook:(id)sender;
+- (IBAction)toggleEnableGetACall:(id)sender;
 - (IBAction)toggleResponseType:(id)sender;
 - (IBAction)toggleSendState:(id)sender;
 - (IBAction)toggleTitle:(id)sender;
+- (IBAction)toggleBackgroundImage:(id)sender;
+- (IBAction)toggleBackgroundTint:(id)sender;
 
 @end

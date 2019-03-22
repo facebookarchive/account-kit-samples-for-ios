@@ -1,7 +1,10 @@
 src/build/
 build/
 lib/
+AccountKitSample/AccountKitSample/ui/
+AccountKitSample/Entitlements/
 project.xcworkspace
+Buck-Info.plist
 xcuserdata
 .arcbuildbootstrap
 .DS_Store

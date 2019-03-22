@@ -34,8 +34,8 @@
 		891731D91BE402F80003ED91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		891731DB1BE402FF0003ED91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		891731DD1BE403080003ED91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		895A5CA21BE7B95900EEE412 /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccountKit.framework; path = ../AccountKit/AccountKit.framework; sourceTree = "<group>"; };
-		89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AccountKitStrings.bundle; path = ../../AccountKAccountKAccountKit/AccountKitStrings.bundle; sourceTree = "<group>"; };
+		895A5CA21BE7B95900EEE412 /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccountKit.framework; path = ../../../build/AccountKit.framework; sourceTree = "<group>"; };
+		89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AccountKitStrings.bundle; path = ../../../AccountKitStrings.bundle; sourceTree = "<group>"; };
 		89B219A01BE3FA83000CD02C /* AccountKitSimpleSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountKitSimpleSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B219A41BE3FA83000CD02C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		89B219A61BE3FA83000CD02C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		89B219981BE3FA83000CD02C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Facebook, Inc";
 				TargetAttributes = {
 					89B2199F1BE3FA83000CD02C = {
@@ -237,6 +237,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 890468C41BE4068000D0DF91 /* Project-Debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -244,6 +253,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 890468C51BE4068000D0DF91 /* Project-Release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -251,6 +269,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 890468C31BE4068000D0DF91 /* Application.xcconfig */;
 			buildSettings = {
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.accountkit.${PRODUCT_NAME:rfc1034identifier}";
 			};
 			name = Debug;
 		};
@@ -258,6 +277,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 890468C31BE4068000D0DF91 /* Application.xcconfig */;
 			buildSettings = {
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.accountkit.${PRODUCT_NAME:rfc1034identifier}";
 			};
 			name = Release;
 		};

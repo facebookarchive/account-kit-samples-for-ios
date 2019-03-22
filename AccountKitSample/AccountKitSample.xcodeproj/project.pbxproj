@@ -7,37 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		036ED3F21DA2CE9500FDC021 /* AccountKitSample.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 036ED3F11DA2CE9500FDC021 /* AccountKitSample.xcconfig */; };
+		035705101E84A58300C69944 /* PlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 035704F91E84A58300C69944 /* PlaceholderView.m */; };
+		035705111E84A58300C69944 /* AdvancedUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 035704FA1E84A58300C69944 /* AdvancedUIManager.m */; };
+		035705121E84A58300C69944 /* ReverbActionBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 035704FE1E84A58300C69944 /* ReverbActionBarView.m */; };
+		035705131E84A58300C69944 /* ReverbBodyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 035705001E84A58300C69944 /* ReverbBodyView.m */; };
+		035705141E84A58300C69944 /* ReverbFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 035705021E84A58300C69944 /* ReverbFooterView.m */; };
+		035705151E84A58300C69944 /* ReverbHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 035705041E84A58300C69944 /* ReverbHeaderView.m */; };
+		035705161E84A58300C69944 /* ReverbProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 035705061E84A58300C69944 /* ReverbProgressBar.m */; };
+		035705171E84A58300C69944 /* ReverbProgressDots.m in Sources */ = {isa = PBXBuildFile; fileRef = 035705081E84A58300C69944 /* ReverbProgressDots.m */; };
+		035705181E84A58300C69944 /* ReverbTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 0357050B1E84A58300C69944 /* ReverbTheme.m */; };
+		035705191E84A58300C69944 /* ReverbUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0357050D1E84A58300C69944 /* ReverbUIManager.m */; };
+		0357051A1E84A58300C69944 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 0357050F1E84A58300C69944 /* Theme.m */; };
 		890468C91BE40C4700D0DF91 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890468C81BE40C4700D0DF91 /* LoginViewController.m */; };
 		890468D81BE4242300D0DF91 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 890468D71BE4242300D0DF91 /* AccountViewController.m */; };
 		891731DA1BE402F80003ED91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891731D91BE402F80003ED91 /* Foundation.framework */; };
 		891731DC1BE402FF0003ED91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891731DB1BE402FF0003ED91 /* CoreGraphics.framework */; };
 		891731DE1BE403080003ED91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891731DD1BE403080003ED91 /* UIKit.framework */; };
-		89235C791CC01AC8004D0920 /* ReverbUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89235C781CC01AC8004D0920 /* ReverbUIManager.m */; };
-		89235C891CC03EDB004D0920 /* ReverbActionBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89235C881CC03EDB004D0920 /* ReverbActionBarView.m */; };
-		89235C8C1CC03F17004D0920 /* ReverbBodyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89235C8B1CC03F17004D0920 /* ReverbBodyView.m */; };
-		89235C8F1CC03F3C004D0920 /* ReverbFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89235C8E1CC03F3C004D0920 /* ReverbFooterView.m */; };
-		89235C921CC03F7A004D0920 /* ReverbHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89235C911CC03F7A004D0920 /* ReverbHeaderView.m */; };
 		892D01A51CA303B500B64FD5 /* ConfigOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 892D01A41CA303B500B64FD5 /* ConfigOption.m */; };
 		892D01A81CA3041E00B64FD5 /* ConfigOptionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892D01A71CA3041E00B64FD5 /* ConfigOptionListViewController.m */; };
-		894FE8DA1CC16A96001739DB /* ReverbTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 894FE8D91CC16A96001739DB /* ReverbTheme.m */; };
 		895A5CA31BE7B95900EEE412 /* AccountKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895A5CA21BE7B95900EEE412 /* AccountKit.framework */; };
-		899BDE2B1CC930460044D338 /* ReverbProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 899BDE2A1CC930460044D338 /* ReverbProgressBar.m */; };
-		899BDE2E1CC930530044D338 /* ReverbProgressDots.m in Sources */ = {isa = PBXBuildFile; fileRef = 899BDE2D1CC930530044D338 /* ReverbProgressDots.m */; };
-		89A9B0621C50355400DB91DD /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A9B0611C50355400DB91DD /* Theme.m */; };
 		89B020B81CCEB85D00EA624B /* AccountKitStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */; };
 		89B219A51BE3FA83000CD02C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B219A41BE3FA83000CD02C /* main.m */; };
 		89B219A81BE3FA83000CD02C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B219A71BE3FA83000CD02C /* AppDelegate.m */; };
 		89B219AE1BE3FA83000CD02C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B219AC1BE3FA83000CD02C /* Main.storyboard */; };
 		89B219B01BE3FA83000CD02C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89B219AF1BE3FA83000CD02C /* Assets.xcassets */; };
 		89B219B31BE3FA83000CD02C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B219B11BE3FA83000CD02C /* LaunchScreen.storyboard */; };
-		89C55BCB1C9C9901008D466E /* AdvancedUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C55BCA1C9C9901008D466E /* AdvancedUIManager.m */; };
-		89C55BCE1C9C99C6008D466E /* PlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C55BCD1C9C99C6008D466E /* PlaceholderView.m */; };
 		89C55BD01C9CB38C008D466E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89C55BCF1C9CB38C008D466E /* QuartzCore.framework */; };
 		DB8BFA481C973655006C3211 /* AuthorizationCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8BFA471C973655006C3211 /* AuthorizationCodeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		035704F91E84A58300C69944 /* PlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaceholderView.m; path = ui/PlaceholderView.m; sourceTree = "<group>"; };
+		035704FA1E84A58300C69944 /* AdvancedUIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdvancedUIManager.m; path = ui/AdvancedUIManager.m; sourceTree = "<group>"; };
+		035704FB1E84A58300C69944 /* AdvancedUIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvancedUIManager.h; path = ui/AdvancedUIManager.h; sourceTree = "<group>"; };
+		035704FC1E84A58300C69944 /* PlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaceholderView.h; path = ui/PlaceholderView.h; sourceTree = "<group>"; };
+		035704FD1E84A58300C69944 /* ReverbActionBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReverbActionBarView.h; path = ui/ReverbActionBarView.h; sourceTree = "<group>"; };
+		035704FE1E84A58300C69944 /* ReverbActionBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReverbActionBarView.m; path = ui/ReverbActionBarView.m; sourceTree = "<group>"; };
+		035704FF1E84A58300C69944 /* ReverbBodyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReverbBodyView.h; path = ui/ReverbBodyView.h; sourceTree = "<group>"; };
+		035705001E84A58300C69944 /* ReverbBodyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReverbBodyView.m; path = ui/ReverbBodyView.m; sourceTree = "<group>"; };
+		035705011E84A58300C69944 /* ReverbFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReverbFooterView.h; path = ui/ReverbFooterView.h; sourceTree = "<group>"; };
+		035705021E84A58300C69944 /* ReverbFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReverbFooterView.m; path = ui/ReverbFooterView.m; sourceTree = "<group>"; };
+		035705031E84A58300C69944 /* ReverbHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReverbHeaderView.h; path = ui/ReverbHeaderView.h; sourceTree = "<group>"; };
+		035705041E84A58300C69944 /* ReverbHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReverbHeaderView.m; path = ui/ReverbHeaderView.m; sourceTree = "<group>"; };
+		035705051E84A58300C69944 /* ReverbProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReverbProgressBar.h; path = ui/ReverbProgressBar.h; sourceTree = "<group>"; };
+		035705061E84A58300C69944 /* ReverbProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReverbProgressBar.m; path = ui/ReverbProgressBar.m; sourceTree = "<group>"; };
+		035705071E84A58300C69944 /* ReverbProgressDots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReverbProgressDots.h; path = ui/ReverbProgressDots.h; sourceTree = "<group>"; };
+		035705081E84A58300C69944 /* ReverbProgressDots.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReverbProgressDots.m; path = ui/ReverbProgressDots.m; sourceTree = "<group>"; };
+		035705091E84A58300C69944 /* ReverbProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReverbProgressView.h; path = ui/ReverbProgressView.h; sourceTree = "<group>"; };
+		0357050A1E84A58300C69944 /* ReverbTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReverbTheme.h; path = ui/ReverbTheme.h; sourceTree = "<group>"; };
+		0357050B1E84A58300C69944 /* ReverbTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReverbTheme.m; path = ui/ReverbTheme.m; sourceTree = "<group>"; };
+		0357050C1E84A58300C69944 /* ReverbUIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReverbUIManager.h; path = ui/ReverbUIManager.h; sourceTree = "<group>"; };
+		0357050D1E84A58300C69944 /* ReverbUIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReverbUIManager.m; path = ui/ReverbUIManager.m; sourceTree = "<group>"; };
+		0357050E1E84A58300C69944 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Theme.h; path = ui/Theme.h; sourceTree = "<group>"; };
+		0357050F1E84A58300C69944 /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Theme.m; path = ui/Theme.m; sourceTree = "<group>"; };
 		036ED3F11DA2CE9500FDC021 /* AccountKitSample.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = AccountKitSample.xcconfig; path = ../Configurations/AccountKitSample.xcconfig; sourceTree = "<group>"; };
 		890468C31BE4068000D0DF91 /* Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Application.xcconfig; path = ../Configurations/Application.xcconfig; sourceTree = "<group>"; };
 		890468C41BE4068000D0DF91 /* Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Project-Debug.xcconfig"; path = "../Configurations/Project-Debug.xcconfig"; sourceTree = "<group>"; };
@@ -50,33 +72,14 @@
 		891731D91BE402F80003ED91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		891731DB1BE402FF0003ED91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		891731DD1BE403080003ED91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		89235C771CC01AC8004D0920 /* ReverbUIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReverbUIManager.h; sourceTree = "<group>"; };
-		89235C781CC01AC8004D0920 /* ReverbUIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReverbUIManager.m; sourceTree = "<group>"; };
-		89235C871CC03EDB004D0920 /* ReverbActionBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReverbActionBarView.h; sourceTree = "<group>"; };
-		89235C881CC03EDB004D0920 /* ReverbActionBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReverbActionBarView.m; sourceTree = "<group>"; };
-		89235C8A1CC03F17004D0920 /* ReverbBodyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReverbBodyView.h; sourceTree = "<group>"; };
-		89235C8B1CC03F17004D0920 /* ReverbBodyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReverbBodyView.m; sourceTree = "<group>"; };
-		89235C8D1CC03F3C004D0920 /* ReverbFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReverbFooterView.h; sourceTree = "<group>"; };
-		89235C8E1CC03F3C004D0920 /* ReverbFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReverbFooterView.m; sourceTree = "<group>"; };
-		89235C901CC03F7A004D0920 /* ReverbHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReverbHeaderView.h; sourceTree = "<group>"; };
-		89235C911CC03F7A004D0920 /* ReverbHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReverbHeaderView.m; sourceTree = "<group>"; };
 		892D01A31CA303B500B64FD5 /* ConfigOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigOption.h; sourceTree = "<group>"; };
 		892D01A41CA303B500B64FD5 /* ConfigOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigOption.m; sourceTree = "<group>"; };
 		892D01A61CA3041E00B64FD5 /* ConfigOptionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigOptionListViewController.h; sourceTree = "<group>"; };
 		892D01A71CA3041E00B64FD5 /* ConfigOptionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigOptionListViewController.m; sourceTree = "<group>"; };
-		894FE8D81CC16A96001739DB /* ReverbTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReverbTheme.h; sourceTree = "<group>"; };
-		894FE8D91CC16A96001739DB /* ReverbTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReverbTheme.m; sourceTree = "<group>"; };
-		895A5CA21BE7B95900EEE412 /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccountKit.framework; path = ../AccountKit/AccountKit.framework; sourceTree = "<group>"; };
-		899BDE291CC930460044D338 /* ReverbProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReverbProgressBar.h; sourceTree = "<group>"; };
-		899BDE2A1CC930460044D338 /* ReverbProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReverbProgressBar.m; sourceTree = "<group>"; };
-		899BDE2C1CC930530044D338 /* ReverbProgressDots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReverbProgressDots.h; sourceTree = "<group>"; };
-		899BDE2D1CC930530044D338 /* ReverbProgressDots.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReverbProgressDots.m; sourceTree = "<group>"; };
-		899BDE2F1CC94DEA0044D338 /* ReverbProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReverbProgressView.h; sourceTree = "<group>"; };
-		89A9B0601C50355400DB91DD /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
-		89A9B0611C50355400DB91DD /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
+		895A5CA21BE7B95900EEE412 /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccountKit.framework; path = ../../../build/AccountKit.framework; sourceTree = "<group>"; };
 		89AB686D1C7FCFFF009F4D13 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		89AB686E1C7FD007009F4D13 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AccountKitStrings.bundle; path = ../../AccountKAccountKAccountKit/AccountKitStrings.bundle; sourceTree = "<group>"; };
+		89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AccountKitStrings.bundle; path = ../../../AccountKitStrings.bundle; sourceTree = "<group>"; };
 		89B219A01BE3FA83000CD02C /* AccountKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B219A41BE3FA83000CD02C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		89B219A61BE3FA83000CD02C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,10 +88,6 @@
 		89B219AF1BE3FA83000CD02C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89B219B21BE3FA83000CD02C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89B219B41BE3FA83000CD02C /* AccountKitSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AccountKitSample-Info.plist"; sourceTree = "<group>"; };
-		89C55BC91C9C9901008D466E /* AdvancedUIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedUIManager.h; sourceTree = "<group>"; };
-		89C55BCA1C9C9901008D466E /* AdvancedUIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedUIManager.m; sourceTree = "<group>"; };
-		89C55BCC1C9C99C6008D466E /* PlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderView.h; sourceTree = "<group>"; };
-		89C55BCD1C9C99C6008D466E /* PlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderView.m; sourceTree = "<group>"; };
 		89C55BCF1C9CB38C008D466E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		98C5011C1C6ABFD1005C8855 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		98C5011D1C6ABFDA005C8855 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -150,6 +149,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		035704F81E84A57500C69944 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				035704F91E84A58300C69944 /* PlaceholderView.m */,
+				035704FA1E84A58300C69944 /* AdvancedUIManager.m */,
+				035704FB1E84A58300C69944 /* AdvancedUIManager.h */,
+				035704FC1E84A58300C69944 /* PlaceholderView.h */,
+				035704FD1E84A58300C69944 /* ReverbActionBarView.h */,
+				035704FE1E84A58300C69944 /* ReverbActionBarView.m */,
+				035704FF1E84A58300C69944 /* ReverbBodyView.h */,
+				035705001E84A58300C69944 /* ReverbBodyView.m */,
+				035705011E84A58300C69944 /* ReverbFooterView.h */,
+				035705021E84A58300C69944 /* ReverbFooterView.m */,
+				035705031E84A58300C69944 /* ReverbHeaderView.h */,
+				035705041E84A58300C69944 /* ReverbHeaderView.m */,
+				035705051E84A58300C69944 /* ReverbProgressBar.h */,
+				035705061E84A58300C69944 /* ReverbProgressBar.m */,
+				035705071E84A58300C69944 /* ReverbProgressDots.h */,
+				035705081E84A58300C69944 /* ReverbProgressDots.m */,
+				035705091E84A58300C69944 /* ReverbProgressView.h */,
+				0357050A1E84A58300C69944 /* ReverbTheme.h */,
+				0357050B1E84A58300C69944 /* ReverbTheme.m */,
+				0357050C1E84A58300C69944 /* ReverbUIManager.h */,
+				0357050D1E84A58300C69944 /* ReverbUIManager.m */,
+				0357050E1E84A58300C69944 /* Theme.h */,
+				0357050F1E84A58300C69944 /* Theme.m */,
+			);
+			name = ui;
+			sourceTree = "<group>";
+		};
 		891731DF1BE404360003ED91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,30 +189,6 @@
 				891731DD1BE403080003ED91 /* UIKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		89235C861CC03EAA004D0920 /* ReverbTheme */ = {
-			isa = PBXGroup;
-			children = (
-				89235C871CC03EDB004D0920 /* ReverbActionBarView.h */,
-				89235C881CC03EDB004D0920 /* ReverbActionBarView.m */,
-				89235C8A1CC03F17004D0920 /* ReverbBodyView.h */,
-				89235C8B1CC03F17004D0920 /* ReverbBodyView.m */,
-				89235C8D1CC03F3C004D0920 /* ReverbFooterView.h */,
-				89235C8E1CC03F3C004D0920 /* ReverbFooterView.m */,
-				89235C901CC03F7A004D0920 /* ReverbHeaderView.h */,
-				89235C911CC03F7A004D0920 /* ReverbHeaderView.m */,
-				899BDE291CC930460044D338 /* ReverbProgressBar.h */,
-				899BDE2A1CC930460044D338 /* ReverbProgressBar.m */,
-				899BDE2C1CC930530044D338 /* ReverbProgressDots.h */,
-				899BDE2D1CC930530044D338 /* ReverbProgressDots.m */,
-				899BDE2F1CC94DEA0044D338 /* ReverbProgressView.h */,
-				894FE8D81CC16A96001739DB /* ReverbTheme.h */,
-				894FE8D91CC16A96001739DB /* ReverbTheme.m */,
-				89235C771CC01AC8004D0920 /* ReverbUIManager.h */,
-				89235C781CC01AC8004D0920 /* ReverbUIManager.m */,
-			);
-			name = ReverbTheme;
 			sourceTree = "<group>";
 		};
 		89B219971BE3FA83000CD02C = {
@@ -211,8 +216,6 @@
 			children = (
 				890468D61BE4242300D0DF91 /* AccountViewController.h */,
 				890468D71BE4242300D0DF91 /* AccountViewController.m */,
-				89C55BC91C9C9901008D466E /* AdvancedUIManager.h */,
-				89C55BCA1C9C9901008D466E /* AdvancedUIManager.m */,
 				89B219A61BE3FA83000CD02C /* AppDelegate.h */,
 				89B219A71BE3FA83000CD02C /* AppDelegate.m */,
 				89B219AF1BE3FA83000CD02C /* Assets.xcassets */,
@@ -226,12 +229,8 @@
 				890468C71BE40C4700D0DF91 /* LoginViewController.h */,
 				890468C81BE40C4700D0DF91 /* LoginViewController.m */,
 				89B219AC1BE3FA83000CD02C /* Main.storyboard */,
-				89C55BCC1C9C99C6008D466E /* PlaceholderView.h */,
-				89C55BCD1C9C99C6008D466E /* PlaceholderView.m */,
-				89235C861CC03EAA004D0920 /* ReverbTheme */,
+				035704F81E84A57500C69944 /* ui */,
 				89B219A31BE3FA83000CD02C /* Supporting Files */,
-				89A9B0601C50355400DB91DD /* Theme.h */,
-				89A9B0611C50355400DB91DD /* Theme.m */,
 			);
 			path = AccountKitSample;
 			sourceTree = "<group>";
@@ -284,11 +283,12 @@
 		89B219981BE3FA83000CD02C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Facebook, Inc";
 				TargetAttributes = {
 					89B2199F1BE3FA83000CD02C = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 4W5TH4RKQ2;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -319,7 +319,6 @@
 				89B219B31BE3FA83000CD02C /* LaunchScreen.storyboard in Resources */,
 				89B219B01BE3FA83000CD02C /* Assets.xcassets in Resources */,
 				89B219AE1BE3FA83000CD02C /* Main.storyboard in Resources */,
-				036ED3F21DA2CE9500FDC021 /* AccountKitSample.xcconfig in Resources */,
 				89B020B81CCEB85D00EA624B /* AccountKitStrings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,24 +330,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89235C791CC01AC8004D0920 /* ReverbUIManager.m in Sources */,
-				894FE8DA1CC16A96001739DB /* ReverbTheme.m in Sources */,
-				899BDE2E1CC930530044D338 /* ReverbProgressDots.m in Sources */,
-				89235C891CC03EDB004D0920 /* ReverbActionBarView.m in Sources */,
-				89C55BCE1C9C99C6008D466E /* PlaceholderView.m in Sources */,
+				035705131E84A58300C69944 /* ReverbBodyView.m in Sources */,
+				035705181E84A58300C69944 /* ReverbTheme.m in Sources */,
+				035705141E84A58300C69944 /* ReverbFooterView.m in Sources */,
+				0357051A1E84A58300C69944 /* Theme.m in Sources */,
+				035705121E84A58300C69944 /* ReverbActionBarView.m in Sources */,
 				890468C91BE40C4700D0DF91 /* LoginViewController.m in Sources */,
+				035705161E84A58300C69944 /* ReverbProgressBar.m in Sources */,
 				DB8BFA481C973655006C3211 /* AuthorizationCodeViewController.m in Sources */,
-				89A9B0621C50355400DB91DD /* Theme.m in Sources */,
+				035705111E84A58300C69944 /* AdvancedUIManager.m in Sources */,
+				035705101E84A58300C69944 /* PlaceholderView.m in Sources */,
 				89B219A81BE3FA83000CD02C /* AppDelegate.m in Sources */,
-				89235C8F1CC03F3C004D0920 /* ReverbFooterView.m in Sources */,
-				899BDE2B1CC930460044D338 /* ReverbProgressBar.m in Sources */,
 				892D01A51CA303B500B64FD5 /* ConfigOption.m in Sources */,
-				89235C8C1CC03F17004D0920 /* ReverbBodyView.m in Sources */,
+				035705191E84A58300C69944 /* ReverbUIManager.m in Sources */,
 				892D01A81CA3041E00B64FD5 /* ConfigOptionListViewController.m in Sources */,
-				89235C921CC03F7A004D0920 /* ReverbHeaderView.m in Sources */,
-				89C55BCB1C9C9901008D466E /* AdvancedUIManager.m in Sources */,
 				89B219A51BE3FA83000CD02C /* main.m in Sources */,
 				890468D81BE4242300D0DF91 /* AccountViewController.m in Sources */,
+				035705151E84A58300C69944 /* ReverbHeaderView.m in Sources */,
+				035705171E84A58300C69944 /* ReverbProgressDots.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +419,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 890468C41BE4068000D0DF91 /* Project-Debug.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -427,6 +436,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 890468C51BE4068000D0DF91 /* Project-Release.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -434,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 036ED3F11DA2CE9500FDC021 /* AccountKitSample.xcconfig */;
 			buildSettings = {
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.accountkit.${PRODUCT_NAME:rfc1034identifier}";
 			};
 			name = Debug;
 		};
@@ -441,6 +461,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 036ED3F11DA2CE9500FDC021 /* AccountKitSample.xcconfig */;
 			buildSettings = {
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.accountkit.${PRODUCT_NAME:rfc1034identifier}";
 			};
 			name = Release;
 		};

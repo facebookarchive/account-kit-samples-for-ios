@@ -23,7 +23,7 @@ final class LoginViewController: UITableViewController {
   
   // MARK: - properties
   
-  fileprivate var accountKit = AKFAccountKit(responseType: .accessToken)
+  fileprivate var accountKit = AccountKit(responseType: .accessToken)
   fileprivate var pendingLoginViewController: AKFViewController? = nil
   fileprivate var showAccountOnAppear = false
   
@@ -33,7 +33,7 @@ final class LoginViewController: UITableViewController {
     super.viewDidLoad()
     
     showAccountOnAppear = accountKit.currentAccessToken != nil
-    pendingLoginViewController = accountKit.viewControllerForLoginResume() as? AKFViewController
+    pendingLoginViewController = accountKit.viewControllerForLoginResume() as AKFViewController?
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +54,7 @@ final class LoginViewController: UITableViewController {
   // MARK: - actions
 
   @IBAction func loginWithPhone(_ sender: AnyObject) {
-    if let viewController = accountKit.viewControllerForPhoneLogin(with: nil, state: nil) as? AKFViewController {
+    if let viewController = accountKit.viewControllerForPhoneLogin(with: nil, state: nil) as AKFViewController? {
       prepareLoginViewController(viewController)
       if let viewController = viewController as? UIViewController {
         present(viewController, animated: true, completion: nil)
@@ -63,7 +63,7 @@ final class LoginViewController: UITableViewController {
   }
 
   @IBAction func loginWithEmail(_ sender: AnyObject) {
-    if let viewController = accountKit.viewControllerForEmailLogin(withEmail: nil, state: nil) as? AKFViewController {
+    if let viewController = accountKit.viewControllerForEmailLogin(with: nil, state: nil) as AKFViewController? {
       prepareLoginViewController(viewController)
       if let viewController = viewController as? UIViewController {
         present(viewController, animated: true, completion: nil)
@@ -91,11 +91,13 @@ final class LoginViewController: UITableViewController {
 // MARK: - AKFViewControllerDelegate extension
 
 extension LoginViewController: AKFViewControllerDelegate {
-  func viewController(_ viewController: UIViewController!, didCompleteLoginWith accessToken: AKFAccessToken!, state: String!) {
+  func viewController(_ viewController: UIViewController & AKFViewController,
+                      didCompleteLoginWith accessToken: AccessToken,
+                      state: String) {
     presentWithSegueIdentifier("showAccount", animated: false)
   }
-  
-  func viewController(_ viewController: UIViewController!, didFailWithError error: Error!) {
+
+  func viewController(_ viewController: UIViewController & AKFViewController, didFailWithError error: Error) {
     print("\(viewController) did fail with error: \(error)")
   }
 }

@@ -38,6 +38,7 @@
   NSString *_authorizationCode;
   AKFButtonType _confirmButtonType;
   BOOL _enableSendToFacebook;
+  BOOL _enableGetACall;
   AKFButtonType _entryButtonType;
   AKFHeaderTextType _headerTextType;
   NSString *_inputState;
@@ -47,6 +48,8 @@
   AKFTextPosition _textPosition;
   ThemeType _themeType;
   BOOL _useAdvancedUIManager;
+  BOOL _useBackgroundImage;
+  AKFBackgroundTint _backgroundTint;
 }
 
 #pragma mark - View Management
@@ -62,6 +65,7 @@
   _showAccountOnAppear = ([_accountKit currentAccessToken] != nil);
   _pendingLoginViewController = [_accountKit viewControllerForLoginResume];
   _enableSendToFacebook = YES;
+  _enableGetACall = YES;
 
   [self _updateThemeType:_themeType];
   [self _updateEntryButtonType:_entryButtonType];
@@ -146,6 +150,7 @@
   UIViewController<AKFViewController> *viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil
                                                                                                           state:_inputState];
   viewController.enableSendToFacebook = _enableSendToFacebook;
+  viewController.enableGetACall = _enableGetACall;
   [self _prepareLoginViewController:viewController];
   [self presentViewController:viewController animated:YES completion:NULL];
 }
@@ -160,6 +165,30 @@
   [self _updateCells];
 }
 
+- (void)toggleBackgroundImage:(id)sender
+{
+  if (![sender isKindOfClass:[UISwitch class]]) {
+    return;
+  }
+  UISwitch *switchControl = (UISwitch *)sender;
+  _useBackgroundImage = switchControl.on;
+  [self _setCell:self.backgroundTintSwitchCell enabled:_useBackgroundImage];
+  [self _setCell:self.tintOpacitySliderCell enabled:_useBackgroundImage];
+}
+
+- (void)toggleBackgroundTint:(id)sender
+{
+  if (![sender isKindOfClass:[UISwitch class]]) {
+    return;
+  }
+  UISwitch *switchControl = (UISwitch *)sender;
+  if (switchControl.on) {
+    _backgroundTint = AKFBackgroundTintBlack;
+  } else {
+    _backgroundTint = AKFBackgroundTintWhite;
+  }
+}
+
 - (void)toggleEnableSendToFacebook:(id)sender
 {
   if (![sender isKindOfClass:[UISwitch class]]) {
@@ -167,6 +196,15 @@
   }
   UISwitch *switchControl = (UISwitch *)sender;
   _enableSendToFacebook = switchControl.on;
+}
+
+- (void)toggleEnableGetACall:(id)sender
+{
+  if (![sender isKindOfClass:[UISwitch class]]) {
+    return;
+  }
+  UISwitch *switchControl = (UISwitch *)sender;
+  _enableGetACall = switchControl.on;
 }
 
 - (void)toggleResponseType:(id)sender
@@ -265,6 +303,7 @@
     case AKFLoginTypePhone:
       viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil state:_inputState];
       viewController.enableSendToFacebook = _enableSendToFacebook;
+      viewController.enableGetACall = _enableGetACall;
       break;
   }
   [self _prepareLoginViewController:viewController];
@@ -329,26 +368,45 @@
     theme = reverbTheme;
   } else {
     theme = [Theme themeWithType:_themeType];
-  }
-  theme.headerTextType = _headerTextType;
-  if (_useAdvancedUIManager) {
-    if ([Theme isReverbTheme:_themeType]) {
-      loginViewController.advancedUIManager = [[ReverbUIManager alloc] initWithConfirmButtonType:_confirmButtonType
-                                                                                 entryButtonType:_entryButtonType
-                                                                                       loginType:loginViewController.loginType
-                                                                                    textPosition:_textPosition
-                                                                                           theme:reverbTheme
-                                                                                        delegate:self];
-    } else {
-      loginViewController.advancedUIManager = [[AdvancedUIManager alloc] initWithConfirmButtonType:_confirmButtonType
-                                                                                   entryButtonType:_entryButtonType
-                                                                                         loginType:loginViewController.loginType
-                                                                                      textPosition:_textPosition];
+    if (theme) {
+      theme.headerTextType = _headerTextType;
     }
   }
 
+  if ([Theme isSkinUI:_themeType]) {
+    if (_useBackgroundImage) {
+      loginViewController.uiManager =
+        [[AKFSkinManager alloc] initWithSkinType:[Theme skinForThemeType:_themeType]
+                                    primaryColor:nil
+                                 backgroundImage:[UIImage imageNamed:@"dog"]
+                                  backgroundTint:_backgroundTint
+                                   tintIntensity:_tintOpacitySlider.value];
+    } else {
+      loginViewController.uiManager =
+        [[AKFSkinManager alloc] initWithSkinType:[Theme skinForThemeType:_themeType]];
+    }
+  } else if (_useAdvancedUIManager) {
+    if ([Theme isReverbTheme:_themeType]) {
+      loginViewController.uiManager =
+        [[ReverbUIManager alloc] initWithConfirmButtonType:_confirmButtonType
+                                           entryButtonType:_entryButtonType
+                                                 loginType:loginViewController.loginType
+                                              textPosition:_textPosition
+                                                     theme:reverbTheme
+                                                  delegate:self];
+    } else {
+      loginViewController.uiManager =
+        [[AdvancedUIManager alloc] initWithTheme:theme
+                               confirmButtonType:_confirmButtonType
+                                 entryButtonType:_entryButtonType
+                                       loginType:loginViewController.loginType
+                                    textPosition:_textPosition];
+    }
+  } else {
+    loginViewController.theme = theme;
+  }
+
   loginViewController.delegate = self;
-  loginViewController.theme = theme;
 }
 
 - (void)_prepareConfigOptionListViewController:(ConfigOptionListViewController *)viewController
@@ -443,8 +501,38 @@
       advancedUISwitch.on = YES;
       [self toggleAdvancedUI:advancedUISwitch];
     }
+  } else if ([Theme isSkinUI:_themeType]) {
+    [self _setCell:self.advancedUISwitchCell enabled:NO];
+
+    UISwitch *advancedUISwitch = self.advancedUISwitch;
+    if (advancedUISwitch.on) {
+      advancedUISwitch.on = NO;
+      [self toggleAdvancedUI:advancedUISwitch];
+    }
+
+    if (_themeType == ThemeTypeDog) {
+      UISwitch *backgroundImageSwitch = self.backgroundImageSwitch;
+      if (!backgroundImageSwitch.on) {
+        backgroundImageSwitch.on = YES;
+        [self toggleBackgroundImage:backgroundImageSwitch];
+      }
+    }
   } else {
     [self _setCell:self.advancedUISwitchCell enabled:YES];
+  }
+
+  if ([Theme isSkinUI:_themeType]) {
+    [self _setCell:self.backgroundImageSwitchCell enabled:YES];
+    [self _setCell:self.backgroundTintSwitchCell enabled:_useBackgroundImage];
+    [self _setCell:self.tintOpacitySliderCell enabled:_useBackgroundImage];
+  } else {
+    [self _setCell:self.backgroundImageSwitchCell enabled:NO];
+    [self _setCell:self.backgroundTintSwitchCell enabled:NO];
+    [self _setCell:self.tintOpacitySliderCell enabled:NO];
+    self.backgroundImageSwitch.on = NO;
+    self.backgroundTintSwitch.on = NO;
+    _backgroundTint = AKFBackgroundTintWhite;
+    _useBackgroundImage = NO;
   }
 }
 

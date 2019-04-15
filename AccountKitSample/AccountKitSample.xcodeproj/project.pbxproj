@@ -288,7 +288,7 @@
 				TargetAttributes = {
 					89B2199F1BE3FA83000CD02C = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 4W5TH4RKQ2;
+						DevelopmentTeam = V9WTTPBFK9;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -298,8 +298,51 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
+				fr,
+				ru,
+				de,
+				ja,
+				es,
+				ar,
+				bn,
+				cs,
+				da,
+				"es-ES",
+				fi,
+				gu,
+				he,
+				hi,
+				hr,
+				hu,
+				id,
+				it,
+				ko,
+				ml,
+				mr,
+				ms,
+				nb,
+				pa,
+				pl,
+				pt,
+				"pt-PT",
+				sk,
+				sv,
+				ta,
+				te,
+				th,
+				tr,
+				nl,
+				vi,
+				zh,
+				"zh-Hant-HK",
+				"zh-Hant-TW",
+				fil,
+				af,
+				el,
+				ro,
 			);
 			mainGroup = 89B219971BE3FA83000CD02C;
 			productRefGroup = 89B219A11BE3FA83000CD02C /* Products */;

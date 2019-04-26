@@ -29,7 +29,7 @@ final class AccountViewController: UIViewController {
 
   // MARK: - properties
   
-  fileprivate var accountKit = AccountKit(responseType: .accessToken)
+  private let accountKit = AccountKit(responseType: .accessToken)
   
   // MARK: - view management
   
@@ -59,6 +59,6 @@ final class AccountViewController: UIViewController {
 
   @IBAction func logOut(_ sender: AnyObject) {
     accountKit.logOut()
-    navigationController!.popToRootViewController(animated: true)
+    navigationController?.popToRootViewController(animated: true)
   }
 }

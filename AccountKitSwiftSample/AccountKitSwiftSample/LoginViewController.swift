@@ -22,10 +22,9 @@ import AccountKit
 final class LoginViewController: UITableViewController {
   
   // MARK: - properties
-  
-  fileprivate var accountKit = AccountKit(responseType: .accessToken)
-  fileprivate var pendingLoginViewController: AKFViewController? = nil
-  fileprivate var showAccountOnAppear = false
+  private let accountKit = AccountKit(responseType: .accessToken)
+  private var pendingLoginViewController: (UIViewController & AKFViewController)? = nil
+  private var showAccountOnAppear = false
   
   // MARK: - view management
 
@@ -33,7 +32,7 @@ final class LoginViewController: UITableViewController {
     super.viewDidLoad()
     
     showAccountOnAppear = accountKit.currentAccessToken != nil
-    pendingLoginViewController = accountKit.viewControllerForLoginResume() as AKFViewController?
+    pendingLoginViewController = accountKit.viewControllerForLoginResume()
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -44,40 +43,32 @@ final class LoginViewController: UITableViewController {
       presentWithSegueIdentifier("showAccount", animated: animated)
     } else if let viewController = pendingLoginViewController {
       prepareLoginViewController(viewController)
-      if let viewController = viewController as? UIViewController {
-        present(viewController, animated: animated, completion: nil)
-        pendingLoginViewController = nil
-      }
+      present(viewController, animated: animated, completion: nil)
+      pendingLoginViewController = nil
     }
   }
   
   // MARK: - actions
 
   @IBAction func loginWithPhone(_ sender: AnyObject) {
-    if let viewController = accountKit.viewControllerForPhoneLogin(with: nil, state: nil) as AKFViewController? {
-      prepareLoginViewController(viewController)
-      if let viewController = viewController as? UIViewController {
-        present(viewController, animated: true, completion: nil)
-      }
-    }
+    let viewController = accountKit.viewControllerForPhoneLogin(with: nil, state: nil)
+    prepareLoginViewController(viewController)
+    present(viewController, animated: true, completion: nil)
   }
 
   @IBAction func loginWithEmail(_ sender: AnyObject) {
-    if let viewController = accountKit.viewControllerForEmailLogin(with: nil, state: nil) as AKFViewController? {
-      prepareLoginViewController(viewController)
-      if let viewController = viewController as? UIViewController {
-        present(viewController, animated: true, completion: nil)
-      }
-    }
+    let viewController = accountKit.viewControllerForEmailLogin(with: nil, state: nil)
+    prepareLoginViewController(viewController)
+    present(viewController, animated: true, completion: nil)
   }
   
   // MARK: - helpers
   
-  fileprivate func prepareLoginViewController(_ loginViewController: AKFViewController) {
+  private func prepareLoginViewController(_ loginViewController: AKFViewController) {
     loginViewController.delegate = self
   }
 
-  fileprivate func presentWithSegueIdentifier(_ segueIdentifier: String, animated: Bool) {
+  private func presentWithSegueIdentifier(_ segueIdentifier: String, animated: Bool) {
     if animated {
       performSegue(withIdentifier: segueIdentifier, sender: nil)
     } else {

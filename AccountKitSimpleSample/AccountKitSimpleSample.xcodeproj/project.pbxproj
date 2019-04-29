@@ -13,7 +13,6 @@
 		891731DC1BE402FF0003ED91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891731DB1BE402FF0003ED91 /* CoreGraphics.framework */; };
 		891731DE1BE403080003ED91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891731DD1BE403080003ED91 /* UIKit.framework */; };
 		895A5CA31BE7B95900EEE412 /* AccountKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895A5CA21BE7B95900EEE412 /* AccountKit.framework */; };
-		89B020B81CCEB85D00EA624B /* AccountKitStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */; };
 		89B219A51BE3FA83000CD02C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B219A41BE3FA83000CD02C /* main.m */; };
 		89B219A81BE3FA83000CD02C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B219A71BE3FA83000CD02C /* AppDelegate.m */; };
 		89B219AE1BE3FA83000CD02C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B219AC1BE3FA83000CD02C /* Main.storyboard */; };
@@ -35,7 +34,6 @@
 		891731DB1BE402FF0003ED91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		891731DD1BE403080003ED91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895A5CA21BE7B95900EEE412 /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccountKit.framework; path = ../../../build/AccountKit.framework; sourceTree = "<group>"; };
-		89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AccountKitStrings.bundle; path = ../../../AccountKitStrings.bundle; sourceTree = "<group>"; };
 		89B219A01BE3FA83000CD02C /* AccountKitSimpleSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountKitSimpleSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B219A41BE3FA83000CD02C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		89B219A61BE3FA83000CD02C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				89B219B41BE3FA83000CD02C /* AccountKitSimpleSample-Info.plist */,
-				89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */,
 				89B219A41BE3FA83000CD02C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -159,7 +156,7 @@
 		89B219981BE3FA83000CD02C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Facebook, Inc";
 				TargetAttributes = {
 					89B2199F1BE3FA83000CD02C = {
@@ -169,7 +166,7 @@
 			};
 			buildConfigurationList = 89B2199B1BE3FA83000CD02C /* Build configuration list for PBXProject "AccountKitSimpleSample" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -193,7 +190,6 @@
 				89B219B31BE3FA83000CD02C /* LaunchScreen.storyboard in Resources */,
 				89B219B01BE3FA83000CD02C /* Assets.xcassets in Resources */,
 				89B219AE1BE3FA83000CD02C /* Main.storyboard in Resources */,
-				89B020B81CCEB85D00EA624B /* AccountKitStrings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +233,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 890468C41BE4068000D0DF91 /* Project-Debug.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
@@ -253,6 +250,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 890468C51BE4068000D0DF91 /* Project-Release.xcconfig */;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;

@@ -18,6 +18,8 @@
 
 #include? "../AccountKitSimpleSample/Pods/Target Support Files/Pods-AccountKitSimpleSample/Pods-AccountKitSimpleSample.debug.xcconfig"
 #include? "../AccountKitSimpleSample/Pods/Target Support Files/Pods-AccountKitSimpleSample/Pods-AccountKitSimpleSample.release.xcconfig"
+#include? "../AccountKitSwiftSample/Pods/Target Support Files/Pods-AccountKitSwiftSample/Pods-AccountKitSwiftSample.debug.xcconfig"
+#include? "../AccountKitSwiftSample/Pods/Target Support Files/Pods-AccountKitSwiftSample/Pods-AccountKitSwiftSample.release.xcconfig"
 
 // Code Signing
 CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Developer

@@ -7,6 +7,9 @@ xcuserdata
 .DS_Store
 *.xcscmblueprint
 AccountKit
+IDEWorkspaceChecks.plist
+Podfile.lock
+*/Pods/*
 
 # vim temp files
 *.swp

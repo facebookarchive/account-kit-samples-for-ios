@@ -26,7 +26,6 @@
 		892D01A51CA303B500B64FD5 /* ConfigOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 892D01A41CA303B500B64FD5 /* ConfigOption.m */; };
 		892D01A81CA3041E00B64FD5 /* ConfigOptionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892D01A71CA3041E00B64FD5 /* ConfigOptionListViewController.m */; };
 		895A5CA31BE7B95900EEE412 /* AccountKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895A5CA21BE7B95900EEE412 /* AccountKit.framework */; };
-		89B020B81CCEB85D00EA624B /* AccountKitStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */; };
 		89B219A51BE3FA83000CD02C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B219A41BE3FA83000CD02C /* main.m */; };
 		89B219A81BE3FA83000CD02C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B219A71BE3FA83000CD02C /* AppDelegate.m */; };
 		89B219AE1BE3FA83000CD02C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B219AC1BE3FA83000CD02C /* Main.storyboard */; };
@@ -79,7 +78,6 @@
 		895A5CA21BE7B95900EEE412 /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccountKit.framework; path = ../../../build/AccountKit.framework; sourceTree = "<group>"; };
 		89AB686D1C7FCFFF009F4D13 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		89AB686E1C7FD007009F4D13 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AccountKitStrings.bundle; path = ../../../AccountKitStrings.bundle; sourceTree = "<group>"; };
 		89B219A01BE3FA83000CD02C /* AccountKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccountKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89B219A41BE3FA83000CD02C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		89B219A61BE3FA83000CD02C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				89B219B41BE3FA83000CD02C /* AccountKitSample-Info.plist */,
-				89B020B71CCEB85D00EA624B /* AccountKitStrings.bundle */,
 				89B219A41BE3FA83000CD02C /* main.m */,
 			);
 			name = "Supporting Files";
@@ -362,7 +359,6 @@
 				89B219B31BE3FA83000CD02C /* LaunchScreen.storyboard in Resources */,
 				89B219B01BE3FA83000CD02C /* Assets.xcassets in Resources */,
 				89B219AE1BE3FA83000CD02C /* Main.storyboard in Resources */,
-				89B020B81CCEB85D00EA624B /* AccountKitStrings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

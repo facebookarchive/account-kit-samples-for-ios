@@ -56,6 +56,16 @@ final class LoginViewController: UITableViewController {
     present(viewController, animated: true, completion: nil)
   }
 
+  @IBAction func loginWithWhatsapp(_ sender: AnyObject) {
+    if let viewController = accountKit.viewControllerForPhoneLogin(with: nil, state: nil) as AKFViewController? {
+      viewController.isInitialSMSButtonEnabled = false
+      prepareLoginViewController(viewController)
+      if let viewController = viewController as? UIViewController {
+        present(viewController, animated: true, completion: nil)
+      }
+    }
+  }
+
   @IBAction func loginWithEmail(_ sender: AnyObject) {
     let viewController = accountKit.viewControllerForEmailLogin(with: nil, state: nil)
     prepareLoginViewController(viewController)

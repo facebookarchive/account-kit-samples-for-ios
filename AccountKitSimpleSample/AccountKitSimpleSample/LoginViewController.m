@@ -75,9 +75,21 @@
 {
   UIViewController<AKFViewController> *viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil
                                                                                                           state:nil];
+
   [self _prepareLoginViewController:viewController];
   [self presentViewController:viewController animated:YES completion:NULL];
 }
+
+- (void)loginWithWhatsApp:(id)sender
+{
+  UIViewController<AKFViewController> *viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil
+                                                                                                          state:nil];
+
+  viewController.enableInitialSMSButton = NO;
+  [self _prepareLoginViewController:viewController];
+  [self presentViewController:viewController animated:YES completion:NULL];
+}
+
 
 #pragma mark - AKFViewControllerDelegate;
 

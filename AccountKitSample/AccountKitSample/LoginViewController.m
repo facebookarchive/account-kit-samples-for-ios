@@ -155,6 +155,18 @@
   [self presentViewController:viewController animated:YES completion:NULL];
 }
 
+- (void)loginWithWhatsapp:(id)sender
+{
+  UIViewController<AKFViewController> *viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil
+                                                                                                          state:_inputState];
+  viewController.enableSendToFacebook = _enableSendToFacebook;
+  viewController.enableGetACall = _enableGetACall;
+  viewController.enableInitialSMSButton = NO;
+  [self _prepareLoginViewController:viewController];
+  [self presentViewController:viewController animated:YES completion:NULL];
+}
+
+
 - (void)toggleAdvancedUI:(id)sender
 {
   if (![sender isKindOfClass:[UISwitch class]]) {

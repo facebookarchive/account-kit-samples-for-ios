@@ -22,5 +22,6 @@
 
 - (IBAction)loginWithEmail:(id)sender;
 - (IBAction)loginWithPhone:(id)sender;
+- (IBAction)loginWithWhatsApp:(id)sender;
 
 @end

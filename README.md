@@ -5,7 +5,9 @@ This repository contains a collection of samples demonstrating how to integrate 
 
 Learn more about the provided samples, documentation, integrating the SDK into your app, accessing source code, and more at https://developers.facebook.com/docs/accountkit
 
-Download the latest version of Account Kit (https://developers.facebook.com/products/account-kit) and update the references to AccountKit.framework and AccountKitStrings.bundle.
+To use with [CocoaPods](https://cocoapods.org/): from the Terminal, run `pod install` in the root directory of the sample you wish to use (AccountKitSample, AccountKitSimpleSample, AccountKitSwiftSample). Then, open the newly created .xcworkspace file in Xcode.
+
+Alternatively, download the latest version of Account Kit (https://developers.facebook.com/products/account-kit) and update the reference to AccountKit.framework.
 
 GIVE FEEDBACK
 -------------

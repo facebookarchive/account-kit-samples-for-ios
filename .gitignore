@@ -7,7 +7,6 @@ xcuserdata
 .DS_Store
 *.xcscmblueprint
 AccountKit
-AccountKitSample/Entitlements/
 
 # vim temp files
 *.swp

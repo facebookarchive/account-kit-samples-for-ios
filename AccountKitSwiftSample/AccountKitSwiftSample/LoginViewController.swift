@@ -22,7 +22,7 @@ import AccountKit
 final class LoginViewController: UITableViewController {
   
   // MARK: - properties
-  private let accountKit = AccountKit(responseType: .accessToken)
+  private let accountKitManager = AccountKitManager(responseType: .accessToken)
   private var pendingLoginViewController: (UIViewController & AKFViewController)? = nil
   private var showAccountOnAppear = false
   
@@ -31,8 +31,8 @@ final class LoginViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    showAccountOnAppear = accountKit.currentAccessToken != nil
-    pendingLoginViewController = accountKit.viewControllerForLoginResume()
+    showAccountOnAppear = accountKitManager.currentAccessToken != nil
+    pendingLoginViewController = accountKitManager.viewControllerForLoginResume()
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -51,23 +51,20 @@ final class LoginViewController: UITableViewController {
   // MARK: - actions
 
   @IBAction func loginWithPhone(_ sender: AnyObject) {
-    let viewController = accountKit.viewControllerForPhoneLogin(with: nil, state: nil)
+    let viewController = accountKitManager.viewControllerForPhoneLogin()
     prepareLoginViewController(viewController)
     present(viewController, animated: true, completion: nil)
   }
 
   @IBAction func loginWithWhatsapp(_ sender: AnyObject) {
-    if let viewController = accountKit.viewControllerForPhoneLogin(with: nil, state: nil) as AKFViewController? {
-      viewController.isInitialSMSButtonEnabled = false
-      prepareLoginViewController(viewController)
-      if let viewController = viewController as? UIViewController {
-        present(viewController, animated: true, completion: nil)
-      }
-    }
+    let viewController = accountKitManager.viewControllerForPhoneLogin()
+    viewController.isInitialSMSButtonEnabled = false
+    prepareLoginViewController(viewController)
+    present(viewController, animated: true, completion: nil)
   }
 
   @IBAction func loginWithEmail(_ sender: AnyObject) {
-    let viewController = accountKit.viewControllerForEmailLogin(with: nil, state: nil)
+    let viewController = accountKitManager.viewControllerForEmailLogin()
     prepareLoginViewController(viewController)
     present(viewController, animated: true, completion: nil)
   }

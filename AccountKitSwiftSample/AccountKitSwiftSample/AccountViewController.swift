@@ -29,14 +29,14 @@ final class AccountViewController: UIViewController {
 
   // MARK: - properties
   
-  private let accountKit = AccountKit(responseType: .accessToken)
+  private let accountKitManager = AccountKitManager(responseType: .accessToken)
   
   // MARK: - view management
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    accountKit.requestAccount { [weak self] (account, error) in
+    accountKitManager.requestAccount { [weak self] (account, error) in
       if let error = error {
         self?.accountIDLabel.text = "N/A"
         self?.titleLabel.text = "Error"
@@ -58,7 +58,7 @@ final class AccountViewController: UIViewController {
   // MARK: - actions
 
   @IBAction func logOut(_ sender: AnyObject) {
-    accountKit.logOut()
+    accountKitManager.logOut()
     navigationController?.popToRootViewController(animated: true)
   }
 }

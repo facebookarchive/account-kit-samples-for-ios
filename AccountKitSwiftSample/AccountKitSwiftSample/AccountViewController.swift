@@ -29,7 +29,7 @@ final class AccountViewController: UIViewController {
 
   // MARK: - properties
   
-  private let accountKitManager = AccountKitManager(responseType: .accessToken)
+  private let accountKitManager = AccountKit(responseType: .accessToken)
   
   // MARK: - view management
   

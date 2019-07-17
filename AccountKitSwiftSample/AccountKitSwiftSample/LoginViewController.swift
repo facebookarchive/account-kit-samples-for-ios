@@ -22,7 +22,7 @@ import AccountKit
 final class LoginViewController: UITableViewController {
   
   // MARK: - properties
-  private let accountKitManager = AccountKitManager(responseType: .accessToken)
+  private let accountKitManager = AccountKit(responseType: .accessToken)
   private var pendingLoginViewController: (UIViewController & AKFViewController)? = nil
   private var showAccountOnAppear = false
   

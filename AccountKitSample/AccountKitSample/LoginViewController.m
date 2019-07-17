@@ -38,7 +38,6 @@
   NSString *_authorizationCode;
   AKFButtonType _confirmButtonType;
   BOOL _enableSendToFacebook;
-  BOOL _enableGetACall;
   AKFButtonType _entryButtonType;
   AKFHeaderTextType _headerTextType;
   NSString *_inputState;
@@ -65,7 +64,6 @@
   _showAccountOnAppear = ([_accountKit currentAccessToken] != nil);
   _pendingLoginViewController = [_accountKit viewControllerForLoginResume];
   _enableSendToFacebook = YES;
-  _enableGetACall = YES;
 
   [self _updateThemeType:_themeType];
   [self _updateEntryButtonType:_entryButtonType];
@@ -150,7 +148,6 @@
   UIViewController<AKFViewController> *viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil
                                                                                                           state:_inputState];
   viewController.enableSendToFacebook = _enableSendToFacebook;
-  viewController.enableGetACall = _enableGetACall;
   [self _prepareLoginViewController:viewController];
   [self presentViewController:viewController animated:YES completion:NULL];
 }
@@ -160,7 +157,6 @@
   UIViewController<AKFViewController> *viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil
                                                                                                           state:_inputState];
   viewController.enableSendToFacebook = _enableSendToFacebook;
-  viewController.enableGetACall = _enableGetACall;
   viewController.enableInitialSMSButton = NO;
   [self _prepareLoginViewController:viewController];
   [self presentViewController:viewController animated:YES completion:NULL];
@@ -208,15 +204,6 @@
   }
   UISwitch *switchControl = (UISwitch *)sender;
   _enableSendToFacebook = switchControl.on;
-}
-
-- (void)toggleEnableGetACall:(id)sender
-{
-  if (![sender isKindOfClass:[UISwitch class]]) {
-    return;
-  }
-  UISwitch *switchControl = (UISwitch *)sender;
-  _enableGetACall = switchControl.on;
 }
 
 - (void)toggleResponseType:(id)sender
@@ -315,7 +302,6 @@
     case AKFLoginTypePhone:
       viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil state:_inputState];
       viewController.enableSendToFacebook = _enableSendToFacebook;
-      viewController.enableGetACall = _enableGetACall;
       break;
   }
   [self _prepareLoginViewController:viewController];

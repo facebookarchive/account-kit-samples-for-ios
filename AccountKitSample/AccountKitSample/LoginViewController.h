@@ -40,7 +40,6 @@
 - (IBAction)loginWithWhatsapp:(id)sender;
 - (IBAction)toggleAdvancedUI:(id)sender;
 - (IBAction)toggleEnableSendToFacebook:(id)sender;
-- (IBAction)toggleEnableGetACall:(id)sender;
 - (IBAction)toggleResponseType:(id)sender;
 - (IBAction)toggleSendState:(id)sender;
 - (IBAction)toggleTitle:(id)sender;

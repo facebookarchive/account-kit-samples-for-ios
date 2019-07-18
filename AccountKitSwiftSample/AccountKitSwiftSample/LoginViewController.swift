@@ -58,7 +58,7 @@ final class LoginViewController: UITableViewController {
 
   @IBAction func loginWithWhatsapp(_ sender: AnyObject) {
     let viewController = accountKitManager.viewControllerForPhoneLogin()
-    viewController.isInitialSMSButtonEnabled = false
+    viewController.isSMSEnabled = false
     prepareLoginViewController(viewController)
     present(viewController, animated: true, completion: nil)
   }

@@ -85,7 +85,7 @@
   UIViewController<AKFViewController> *viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil
                                                                                                           state:nil];
 
-  viewController.enableInitialSMSButton = NO;
+  viewController.enableSMS = NO;
   [self _prepareLoginViewController:viewController];
   [self presentViewController:viewController animated:YES completion:NULL];
 }

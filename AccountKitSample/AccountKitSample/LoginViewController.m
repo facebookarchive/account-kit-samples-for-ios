@@ -38,6 +38,7 @@
   NSString *_authorizationCode;
   AKFButtonType _confirmButtonType;
   BOOL _enableSendToFacebook;
+  BOOL _testSmsWithInfobip;
   AKFButtonType _entryButtonType;
   AKFHeaderTextType _headerTextType;
   NSString *_inputState;
@@ -64,6 +65,7 @@
   _showAccountOnAppear = ([_accountKit currentAccessToken] != nil);
   _pendingLoginViewController = [_accountKit viewControllerForLoginResume];
   _enableSendToFacebook = YES;
+  _testSmsWithInfobip = YES;
 
   [self _updateThemeType:_themeType];
   [self _updateEntryButtonType:_entryButtonType];
@@ -148,6 +150,7 @@
   UIViewController<AKFViewController> *viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil
                                                                                                           state:_inputState];
   viewController.enableSendToFacebook = _enableSendToFacebook;
+  viewController.testSmsWithInfobip = _testSmsWithInfobip;
   [self _prepareLoginViewController:viewController];
   [self presentViewController:viewController animated:YES completion:NULL];
 }
@@ -157,6 +160,7 @@
   UIViewController<AKFViewController> *viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil
                                                                                                           state:_inputState];
   viewController.enableSendToFacebook = _enableSendToFacebook;
+  viewController.testSmsWithInfobip = _testSmsWithInfobip;
   viewController.enableSMS = NO;
   [self _prepareLoginViewController:viewController];
   [self presentViewController:viewController animated:YES completion:NULL];
@@ -205,6 +209,16 @@
   UISwitch *switchControl = (UISwitch *)sender;
   _enableSendToFacebook = switchControl.on;
 }
+
+- (void)toggleTestSmsWithInfobip:(id)sender
+{
+  if (![sender isKindOfClass:[UISwitch class]]) {
+    return;
+  }
+  UISwitch *switchControl = (UISwitch *)sender;
+  _testSmsWithInfobip = switchControl.on;
+}
+
 
 - (void)toggleResponseType:(id)sender
 {
@@ -302,6 +316,7 @@
     case AKFLoginTypePhone:
       viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil state:_inputState];
       viewController.enableSendToFacebook = _enableSendToFacebook;
+      viewController.testSmsWithInfobip = _testSmsWithInfobip;
       break;
   }
   [self _prepareLoginViewController:viewController];

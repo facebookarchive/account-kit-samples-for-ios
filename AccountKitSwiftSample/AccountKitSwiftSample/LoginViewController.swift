@@ -90,7 +90,7 @@ final class LoginViewController: UITableViewController {
 
 extension LoginViewController: AKFViewControllerDelegate {
   func viewController(_ viewController: UIViewController & AKFViewController,
-                      didCompleteLoginWith accessToken: AccessToken,
+                      didCompleteLoginWith accessToken: AKFAccessToken,
                       state: String) {
     presentWithSegueIdentifier("showAccount", animated: false)
   }
